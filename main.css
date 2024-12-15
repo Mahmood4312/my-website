@@ -1,0 +1,467 @@
+/* reset css: all padding and margin reset to 0 */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+/* Styling for header in inches */
+.header {
+    width: 17.7222in;  /* Width in inches */
+    height: 2.1389in;  /* Height in inches */
+    overflow: hidden;   /* Prevents overflow if the image exceeds the size */
+    position: relative;
+    margin: 0 auto;     /* Centers the header horizontally */
+}
+
+.header-image {
+    width: 1276px;  /* Match the width */
+    height: 154px; /* Match the height */
+    object-fit: cover; /* Make sure the image covers the space properly */
+}
+
+/* Default styling for navigation buttons */
+.nav-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent; /* Transparent background */
+    color: #FF4D94; /* Soft pink text color */
+    text-decoration: none;
+    border: 2px solid #FF4D94; /* Border color to match the text */
+    border-radius: 50px; /* Rounded button */
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: relative; /* For absolute positioning of the animation */
+    overflow: hidden; /* Ensures animation stays within bounds */
+}
+
+/* Hover effect for the buttons */
+.nav-btn:hover {
+    color: white;
+    background-color: #FF4D94; /* Change background on hover */
+}
+
+/* Active state effect (click effect) */
+.nav-btn:active {
+    color: white;
+    background-color: #FF3385; /* Darker pink on active */
+}
+
+/* Adding a cool underline animation effect on hover */
+.nav-btn::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #FF4D94;
+    transition: width 0.3s ease, left 0.3s ease; /* Smooth transition */
+    transform: translateX(-50%); /* Center the underline */
+}
+
+/* When the button is hovered, expand the underline */
+.nav-btn:hover::before {
+    width: 100%; /* Expand the underline to full width */
+    left: 0; /* Align it to the left */
+}
+
+/* Adding a unique background transition effect when the button is clicked */
+.nav-btn:active::before {
+    background-color: #FF3385; /* Darker underline color when clicked */
+}
+
+/* Optional: Add a subtle bounce effect when a link is clicked */
+.nav-btn:active {
+    animation: bounceEffect 0.3s ease-in-out;
+}
+
+/* Remove default list styling */
+nav ul {
+    list-style: none; /* Removes bullets or numbers */
+    padding: 0; /* Removes padding around the list */
+    margin: 0; /* Removes margin around the list */
+    display: flex; /* Aligns list items horizontally */
+}
+
+nav li {
+    margin-right: 20px; /* Adds spacing between the list items */
+}
+
+nav a {
+    text-decoration: none; /* Removes underline from links */
+    color: #FF4D94; /* Set the text color */
+    font-weight: bold;
+}
+
+
+@keyframes bounceEffect {
+    0% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    70% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+body {
+    background-color: hsl(311, 69%, 87%); /* Background color */
+    font-family: 'Poppins', sans-serif; 
+    color: #000000; /* Text color */
+    font-size: 100%; /* 16px = 100% = 1em */
+    background-image: url(../images/45degreee_fabric.webp); /* Optional background image */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; /* Regular weight */
+    font-style: normal; /* Normal style */
+}
+
+h1 {
+    font-size: 2.25em; /* 36px / 16px = 2.25em OR 225% */
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 2.125em; /* 34px / 16px = 2.125em */
+    margin-bottom: 8px;
+}
+
+h3 {
+    font-size: 2em; /* 32px / 16px = 2em */
+}
+
+p {
+    margin-bottom: 8px;
+}
+
+img {
+    width: 600px; /* Increased width */
+    height: 400px; /* Fixed height */
+    object-fit: cover; /* Ensures the image covers the given dimensions without distortion */
+}
+/* Separate Image with Custom Size */
+.separate-image {
+    width: 523px;  /* Width of the image */
+    height: 342px;  /* Height of the image */
+    object-fit: cover; /* Ensure the image fits within the defined size */
+    margin-top: 20px;  /* Optional: Adds space above the image */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+}
+
+/* Title with Bold Font, Size 15 */
+.title {
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px; /* Reduces space above the title */
+    margin-bottom: 5px; /* Reduces space below the title */
+}
+
+/* Description with Regular Font, Size 13 */
+.description {
+    font-weight: 300; /* Light font weight */
+    font-size: 13px;
+    margin-top: 0; /* Removes space above the description */
+    margin-bottom: 15px; /* Adjusts space below the description */
+}
+
+/* Adjust image space */
+.separate-image {
+    width: 305px;
+    height: 270px;
+    object-fit: cover;
+    display: block; /* Ensures image is block-level element */
+    margin-bottom: 10px; /* Reduces space below the image */
+}
+
+/* Portfolio Container for Horizontal Alignment */
+.portfolio-container {
+    display: flex;                  /* Align items horizontally */
+    justify-content: space-around;  /* Add even spacing between items */
+    align-items: flex-start;        /* Align items to the top */
+    gap: 20px;                      /* Add spacing between portfolio items */
+    flex-wrap: wrap;                /* Ensure wrapping for smaller screens */
+    padding: 20px;                  /* Add padding around the container */
+    max-width: 1200px;              /* Keep container within the layout */
+    margin: 0 auto;                 /* Center align container */
+}
+
+/* Each Portfolio Item */
+.portfolio-item {
+    display: flex;                  /* Stack image and text vertically */
+    flex-direction: column;         /* Ensure horizontal alignment */
+    align-items: center;            /* Center-align content horizontally */
+    width: 305px;                   /* Fixed width for each item */
+    text-align: center;             /* Center-align text */
+}
+
+/* Styling for Images in Portfolio */
+.portfolio-item img {
+    width: 305px;                   /* Set fixed width for consistency */
+    height: 270px;                  /* Set fixed height */
+    object-fit: cover;              /* Maintain aspect ratio */
+    border-radius: 10px;            /* Optional rounded corners */
+    margin-bottom: 10px;            /* Add spacing below the image */
+}
+
+/* Title Beneath Images */
+.portfolio-item .title {
+    font-weight: bold;              /* Bold font for titles */
+    font-size: 15px;                /* Set font size */
+    margin-top: 10px;               /* Add spacing above the title */
+    margin-bottom: 5px;             /* Add spacing below the title */
+}
+
+/* Description Beneath Titles */
+.portfolio-item .description {
+    font-weight: 300;               /* Lighter font weight */
+    font-size: 13px;                /* Smaller font size */
+    margin-top: 0;                  /* No spacing above the description */
+    margin-bottom: 15px;            /* Add spacing below the description */
+}
+
+/* Responsive Design Adjustments */
+@media screen and (max-width: 800px) {
+    .portfolio-container {
+        justify-content: center;    /* Center-align items for smaller screens */
+        gap: 15px;                  /* Reduce spacing between items */
+    }
+
+    .portfolio-item {
+        width: 100%;                /* Allow items to use full width */
+        max-width: 350px;           /* Set a max width */
+    }
+}
+
+.container {
+    background-color: hsl(312, 66%, 72%); /* Same background color as body */
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header {
+    background-color: rgb(253, 160, 255); /* Light pink header */
+    flex: 1 0 100%;
+    height: 200px;
+}
+
+nav {
+    background-color: hsl(311, 69%, 87%); /* Same background as body */
+    flex: 1 0 100%;
+}
+
+ul {
+    background-color: #ea90eb; /* Light pink background color for navigation */
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+}
+
+li {
+    margin-left: 10px;
+}
+
+/* Initial state of button */
+a:link {
+    display: block;
+    padding: 10px 10px;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+a:visited {
+    color: rgb(0, 0, 0); /* Visited link color */
+}
+
+a:hover {
+    color: rgb(0, 0, 0); /* Changes text color to black */
+    text-decoration: underline; /* Underlines the text when hovered */
+}
+
+a:active {
+    background-color: rgb(0, 0, 0); /* Background color when clicked */
+}
+
+main {
+    background-color: #F5C8ED; /* Light pink background for main content */
+    flex: 1 0 70%; /* Flexible size */
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+aside {
+    background-color: #F5C8ED; /* Same background for sidebar */
+    flex: 1 0 30%; /* Flexible size for sidebar */
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+/* Reset margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling to allow full-width content */
+body {
+    display: flex;
+    justify-content: flex-start; /* Align everything to the left */
+    padding: 0;
+}
+
+/* Reset margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling to allow full-width content */
+body {
+    display: flex;
+    justify-content: flex-start; /* Align everything to the left */
+    padding: 0;
+}
+
+/* Container for the content */
+.container {
+    margin: 0 50px;  /* Add padding to ensure the content doesn't go to the edges */
+}
+
+/* Contact form styling */
+.contact-form {
+    background-color: #FDA0FF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;  /* Set a smaller max width */
+    margin: 20px 0 20px 0; /* Keep top and bottom margins, no negative left margin */
+}
+
+/* Form inputs styling */
+.contact-form input, .contact-form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 2px solid #000000;
+}
+
+.contact-form button {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #000000;
+}
+
+/* Collaboration section styling */
+.collaboration-section {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 650px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Button styling for collaboration section */
+.collaboration-button {
+    background-color: #ff4d94;  /* Soft pink */
+    color: white;
+    padding: 16px 32px;
+    border: 2px solid #ff4d94;  /* Matching border color */
+    border-radius: 50px;  /* Rounded pill shape */
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+}
+
+.collaboration-button:hover {
+    background-color: transparent;  /* Makes background transparent on hover */
+    color: #ff4d94;  /* Changes text color to pink */
+    border: 2px solid #ff4d94;  /* Keeps the border on hover */
+    transform: translateY(-3px);  /* Slight lift effect */
+}
+
+
+footer {
+    background-color: #FDA0FF; /* Footer background color */
+    flex: 1 0 100%; /* Footer spans full width */
+}
+
+/* Tablet: if viewport or screen is 800px or less... */
+@media screen and (max-width: 800px) {
+    body {
+        background-color: #F5C8ED; /* Soft pink background */
+    }
+
+    header {
+        height: 100px; /* Reduce header height */
+    }
+
+    a:link {
+        padding: 10px 20px; /* Adjust link padding */
+    }
+
+    main {
+        flex: 1 0 60%; /* Adjust main section size */
+    }
+
+    aside {
+        flex: 1 0 40%; /* Adjust sidebar size */
+    }
+}
+footer {
+    width: 1273px;             /* Set the width */
+    height: 51px;              /* Set the height */
+    background-color: #FDA0FF; /* Light pink or any preferred color */
+    display: flex;             /* Flexbox for centering content */
+    justify-content: center;   /* Center horizontally */
+    align-items: center;       /* Center vertically */
+    margin: 0 auto;            /* Center the footer within the page */
+    font-family: 'Poppins', sans-serif; /* Match font with the rest of the site */
+    font-size: 14px;           /* Adjust font size */
+    color: #000000;            /* Text color */
+}
+
+/* Mobile: if viewport or screen is 600px or less... */
+@media screen and (max-width: 600px) {
+    header {
+        height: 50px; /* Reduce header height further */
+    }
+
+    ul {
+        display: block; /* Stack navigation links vertically */
+        text-align: center; /* Center align the links */
+    }
+
+    main {
+        flex: 1 0 100%; /* Make main content full width */
+    }
+}
